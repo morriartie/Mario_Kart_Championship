@@ -1,6 +1,13 @@
 # About
 This tool takes the races info of Time Trials in Mario Kart (or any race) and build graphs and rankings. See an example of the txt in the files.
 Data must be inserted manually
+It will create a directory for the track specified in the data txt, and save there (or just show) the plots containing the following data:
+* Ranking for total race time
+* Ranking for fastest laps
+* Each player total time history
+* Each player best and worst laps in time
+* Each player variation between best and worst lap
+* Ranking of most consistent player considering the previous info
 
 # Requirements
 * matplotlib
