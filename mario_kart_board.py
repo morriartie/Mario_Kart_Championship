@@ -185,13 +185,12 @@ for player in players:
     lineplotter(index,total,title,"index","time")
     show("best_race_"+player+".jpg") 
     ## best lap
-    title = player+" best times"
+    title = player+" best and worse laps"
     lineplotter(index,best,title,"index","time",color='blue',line='--')
     lineplotter(index,worse,title,"index","time",color='red',line='--')
     show("best_lap_"+player+".jpg") 
     ## variance
-    #title = 'Variancia ente melhores e piores voltas'
-    title = 'Variation between best and worse laps'
+    title = 'Variation between best and worse laps ('+player+')'
     lineplotter(index,variance,title,'index','time')
     show("vari_"+player+".jpg")
     #
