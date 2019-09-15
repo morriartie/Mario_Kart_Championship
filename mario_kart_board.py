@@ -18,7 +18,7 @@ IMAGE_VIEWER = "eog"
 
 def show(filename=None):
     if filename and SAVE_PLOTS:
-        print("salvando",filename)
+        print("saving",filename)
         plt.savefig(SAVE_FOLDER+"/"+TRACK_NAME+"/"+filename)
         plt.clf()
     if SHOW_PLOTS:
@@ -29,11 +29,13 @@ def normalize(values):
     return [v/mv for v in values]
 
 def randname(size):
+    # unused
     chars = list('bcdfghjklmnpqrstvwxyz')
     vowels = list('aeiou')
     return ''.join([sample(chars,1)[0]+sample(vowels,1)[0] for i in range(int(size/2))]).title()
     
 def gen_names(number, min_size, max_size):
+    # unused
     return list(set([randname(randint(min_size,max_size)) for i in range(number)]))
 
 def lineplotter(x,y,title,xlabel,ylabel,color='black',line='-'):
@@ -54,7 +56,7 @@ TRACK_NAME = f[0].replace('#','').strip().replace(' ','_')
 path = f'./{SAVE_FOLDER}/{TRACK_NAME}'
 exists = os.path.isdir(path)
 if not exists:
-    print(f"{path} nao existe. Criando novo")
+    print(f"{path} Doesn't exists. Creating new")
     os.makedirs(path)
 #
 lines = [v.replace(' ','').split('|') for v in f if "#" not in v and v]
@@ -131,8 +133,8 @@ times = normalize(times)
 
 plt.bar(y_pos, times, align='center', alpha=1, color='black')
 plt.xticks(y_pos, names)
-plt.ylabel('Tempo')
-plt.title('Ranking Melhores Corridas')
+plt.ylabel('time')
+plt.title('Best Races Ranking')
 show("race_ranking.jpg")
 
 # best lap ranking
@@ -157,8 +159,8 @@ times = normalize(times)
 
 plt.bar(y_pos, times, align='center', alpha=1, color='black')
 plt.xticks(y_pos, names)
-plt.ylabel('Tempo')
-plt.title('Ranking Melhores Voltas')
+plt.ylabel('time')
+plt.title('Best Laps Ranking')
 show("ranking_laps.jpg")
 
 # personal history
@@ -179,17 +181,18 @@ for player in players:
     variance = [ms_dif(worse[i],best[i]) for i in range(len(best))]
     # def lineplotter(x,y,title,xlabel,ylabel,color='black',line='-'):
     ## races
-    title = "Corridas de "+player
-    lineplotter(index,total,title,"indice","tempo")
+    title = player+" races"
+    lineplotter(index,total,title,"index","time")
     show("best_race_"+player+".jpg") 
     ## best lap
-    title = "Melhores voltas de "+player
-    lineplotter(index,best,title,"indice","tempo",color='blue',line='--')
-    lineplotter(index,worse,title,"indice","tempo",color='red',line='--')
+    title = player+" best times"
+    lineplotter(index,best,title,"index","time",color='blue',line='--')
+    lineplotter(index,worse,title,"index","time",color='red',line='--')
     show("best_lap_"+player+".jpg") 
     ## variance
-    title = 'Variancia ente melhores e piores voltas'
-    lineplotter(index,variance,title,'indice','tempo')
+    #title = 'Variancia ente melhores e piores voltas'
+    title = 'Variation between best and worse laps'
+    lineplotter(index,variance,title,'index','time')
     show("vari_"+player+".jpg")
     #
     variancias.append([min(variance),player])
@@ -201,8 +204,8 @@ y_pos = np.arange(len(names))
 
 plt.bar(y_pos, varis, align='center', alpha=1, color='black')
 plt.xticks(y_pos, names)
-plt.ylabel('instabilidade')
-plt.title('Variacoes nos tempos das voltas')
+plt.ylabel('instability')
+plt.title('Lap times variation')
 show("instab.jpg")
 
 if EXECUTE_VIEWER:
