@@ -1,7 +1,7 @@
 # Baby Park #########################################
 # Baby Daisy | City Tripper | Roller | Flower Glider
 #####################################################
-# NOME  | TOTAL    | MELHOR | PIOR   | INDICE
+# NOME  | TOTAL    | BEST   | WORSE  | INDEX
 #####################################################
 Gabriel | 1:17.121 | 10.469 | 12.147 | 1
 Gabriel | 1:16.922 | 10.272 | 12.061 | 2
