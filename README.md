@@ -3,8 +3,8 @@ This tool takes the races info of Time Trials in Mario Kart (or any race) and bu
 Data must be inserted manually
 
 # Requirements
-matplotlib
-numpy
+* matplotlib
+* numpy
 
 # Usage
 * Fill the txt with player name, race time, best lap and worse lap each time a fried plays. Incrementing the index accordingly (last parameter)
