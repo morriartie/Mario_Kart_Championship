@@ -14,7 +14,7 @@ It will create a directory for the track specified in the data txt, and save the
 * numpy
 
 # Usage
-* Fill the txt with player name, race time, best lap and worse lap each time a fried plays. Incrementing the index accordingly (last parameter)
+Fill the txt with player name, race time, best lap and worse lap each time a fried plays. Incrementing the index accordingly (last parameter)
 
 ## Example
 python3 mario_kart_board.py baby_park_times.txt
